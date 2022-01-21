@@ -15,7 +15,10 @@ class TeamsController < ApplicationController
     @team = Team.new
   end
 
-  def edit; end
+  def edit
+    redirect_to dashboard_path unless current_user == Team.find_by(name: params[:id]).owner
+ 
+  end
 
   def create
     @team = Team.new(team_params)
@@ -30,6 +33,7 @@ class TeamsController < ApplicationController
   end
 
   def update
+
     if @team.update(team_params)
       redirect_to @team, notice: I18n.t('views.messages.update_team')
     else
