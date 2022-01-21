@@ -20,6 +20,7 @@ class AssignsController < ApplicationController
 
     redirect_to team_url(params[:team_id]), notice: destroy_message
   end
+  
 
   private
   def assign_params
@@ -63,6 +64,6 @@ class AssignsController < ApplicationController
   end
 
   def find_team(team_id)
-    Team.friendly.find(params[:team_id])
+    Team.friendly.find(team_id)
   end
 end

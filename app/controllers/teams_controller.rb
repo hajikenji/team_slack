@@ -47,6 +47,18 @@ class TeamsController < ApplicationController
     @team = current_user.keep_team_id ? Team.find(current_user.keep_team_id) : current_user.teams.first
   end
 
+  def authority
+    if current_user == Team.find_by(name: params[:id]).owner
+      Team.find_by(name: params[:id]).update(owner_id: Assign.find(params[:format]).user[:id])
+      redirect_to team_path(params[:id])
+      user = Assign.find(params[:format]).user
+      AssignMailer.assign_mail(user.email, user.password).deliver
+    end
+    # Team.find_by(name: params[:id])[:owner_id] = Assign.find(params[:format]).user[:id]
+    # Team.find_by(name: params[:id]).update(owner_id: Assign.find(params[:format]).user[:id])
+    # redirect_to team_path(params[:id])
+  end
+
   private
 
   def set_team
