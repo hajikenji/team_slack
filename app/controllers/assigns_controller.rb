@@ -20,6 +20,7 @@ class AssignsController < ApplicationController
 
     redirect_to team_url(params[:team_id]), notice: destroy_message
   end
+  
 
   private
   def assign_params

@@ -27,6 +27,7 @@ gem 'seed-fu', '~> 2.3'
 # gem 'rmagick'
 # gem 'redis', '~> 4.0'
 # gem 'bcrypt', '~> 3.1.7'
+gem 'rexml'
 
 # Authentication
 gem 'devise'
@@ -43,8 +44,8 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'rubocop', require: false
-  gem 'rubocop-rails'
   gem 'rubocop-checkstyle_formatter'
+  gem 'rubocop-rails'
   gem 'shoulda-matchers'
   gem 'spring'
   gem 'spring-commands-rspec'
@@ -66,11 +67,11 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'webdrivers'
   gem 'rails-controller-testing'
   gem 'rspec-parameterized'
   gem 'rspec-retry'
   gem 'timecop'
+  gem 'webdrivers'
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
