@@ -21,6 +21,11 @@ class AgendasController < ApplicationController
     end
   end
 
+  def destroy
+    Agenda.find(params[:id]).destroy
+    redirect_to dashboard_path
+  end
+
   private
 
   def set_agenda
