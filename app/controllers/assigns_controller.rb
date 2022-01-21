@@ -66,6 +66,6 @@ class AssignsController < ApplicationController
   end
 
   def find_team(team_id)
-    Team.friendly.find(params[:team_id])
+    Team.friendly.find(team_id)
   end
 end
